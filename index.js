@@ -1,5 +1,5 @@
 import { drawDropdown, dropdown } from "./src/dropdown.js";
-import { follow } from "./src/follow.js";
+import { follow } from "./src/scripts.js";
 
 
 export const init = (() => {

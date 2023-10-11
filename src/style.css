@@ -27,6 +27,10 @@ body {
     position: relative;
 }
 
+#playground {
+    overflow: hidden;
+}
+
 /* dropdown css */
 .dropdown {
     width: 15rem;
@@ -99,10 +103,39 @@ li {
 }
 /* end of dropdown css */
 
+/* tooltip css */
+.tooltip {
+    z-index: 1;
+    position: absolute;
+    background-color: #9ec5ab;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    bottom: 0;
+    right: 0;
+    width: 35%;
+    padding: 1.5rem 1rem 1rem 1rem;
+    border-radius: 3px;
+    transition: filter 1s;
+}
+
+.tooltip::before {
+    content: "Click to close tooltip";
+    font-size: .7rem;
+    color: var(--background-play);
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+/* end of tooltip css */
+
 #ball {
-    width: 2rem;
-    height: 2rem;
+    width: 30px;
+    height: 30px;
     background-color: red;
     position:absolute;
-    border-radius: 1rem;
+    border-radius: 15px;
+    top: 0;
+    left: 0;
+    transition: transform 1s;
 }
