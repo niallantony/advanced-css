@@ -53,6 +53,7 @@ const drawDropdown = (id,optionList,frontText = "Dropdown List") => {
         newPlayground.id = 'playground';
         container.insertBefore(newPlayground,playground);
         container.removeChild(playground);
+        return newPlayground;
     }
 
     const dropdown = document.createElement('div');
@@ -73,8 +74,8 @@ const drawDropdown = (id,optionList,frontText = "Dropdown List") => {
         link.textContent = option.name
         link.classList.add('dropdown-option');
         link.addEventListener('click',() => {
-            refreshPlayground();
-            option.link();
+            const newPlay = refreshPlayground();
+            option.link(newPlay);
         });
         li.appendChild(link);
         ul.appendChild(li);

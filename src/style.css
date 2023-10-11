@@ -129,6 +129,25 @@ li {
 
 /* end of tooltip css */
 
+.context-button {
+    margin: 1rem;
+    background-color: var(--accent);
+    border: 1px solid var(--shade);
+    font-family: 'Orbitron', sans-serif;
+    color: var(--background-play);
+    padding: 1rem;
+    border-radius: 3px;
+}
+
+.context-button:active {
+    transform: scale(102%);
+    filter: brightness(120%);
+}
+
+.context-button:hover {
+    filter: brightness(112%);
+}
+
 #ball {
     width: 30px;
     height: 30px;
@@ -138,4 +157,63 @@ li {
     top: 0;
     left: 0;
     transition: transform 1s;
+}
+
+.perspective {
+    perspective: 400px;
+}
+
+.cube {
+    transform-style: preserve-3d;
+    position: absolute;
+    margin-left:auto;
+    margin-right:auto;
+    left:0;
+    right:0;
+    margin-top:auto;
+    margin-bottom:auto;
+    top:0;
+    bottom:0;
+    width:200px;
+    height: 200px;
+}
+
+.cube.spinning {
+    animation: cubeRotate 10s linear infinite;
+}
+
+@keyframes cubeRotate {
+    from { transform: rotateY(0deg) rotateX(720deg) rotateZ(0deg);}
+    to { transform: rotatey(360deg) rotateX(0deg) rotateZ(360deg);}
+}
+
+.side {
+    width: 200px;
+    height: 200px;
+    border: 1px dashed var(--accent);
+    background-color: rgba(50, 116, 109, 0.3);
+    transition: transform 1s;
+    position: absolute;
+}
+
+.front {
+    transform: translateZ(100px);
+}
+
+.back {
+    transform: rotateY(180deg) translateZ(100px);
+}
+.left {
+    transform: rotateY(90deg) translateZ(100px);
+}
+.right {
+    transform: rotateY(270deg) translateZ(100px);
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(100px);
+}
+
+.bottom {
+    transform: rotateX(270deg) translateZ(100px);
 }
