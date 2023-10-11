@@ -1,14 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+:root {
+    --background: #9ec5ab;
+    --background-play: #EEFEFF;
+    --hover: #32746d;
+    --text: #01200f;
+    --accent: #104f55;
+    --shade: #011502;
+    font-family: 'Orbitron', sans-serif;
+}
+
 body {
     height: 100dvh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: gray;
+    background-color: var(--shade)
 }
 
-#playground {
+#playground, 
+#container {
     width: clamp(10rem, 75vw, 40rem);
     height: clamp(10rem, 60vh, 40rem);
-    background-color: azure;
-    /* border: 1px solid black; */
+    background-color: var(--background-play);
+    position: relative;
+}
+
+/* dropdown css */
+.dropdown {
+    width: 15rem;
+    align-self: baseline;
+    position: absolute;
+    top: -4rem;
+    right: 0;
+}
+.dropdown-front {
+    border: 0;
+    background-color: var(--background);
+    color: var(--text);
+    border-radius: 10px 10px 0;
+    font-size: 1rem;
+    padding: 1rem;
+    width: 100%;
+    text-align: left;
+    box-sizing: border-box;
+    position:relative;
+}
+
+.option-frame {
+    width: inherit;
+    display:flex;
+    flex-direction: column;
+    background-color: var(--background);
+    border-radius: 10px 0 10px 10px ;
+    position:absolute;
+    z-index: 2;
+}
+
+.dropdown-option {
+    border: 0;
+    border-bottom: 1px solid var(--accent);
+    background-color: var(--background);
+    color: var(--text);
+    text-align: left;
+    display:block;
+    padding: 0.5rem;
+}
+
+a {
+    margin:0;
+    font-family: inherit;
+}
+
+.dropdown-option:hover {
+    background-color: var(--hover);
+}
+
+.dropdown-option:active {
+    filter: brightness(90%);
+}
+
+.dropdown-front.visible {
+    background-color: var(--hover);
+}
+
+
+ul {
+    margin:0;
+    padding:0;
+}
+
+li {
+    text-decoration: none;
+    margin: 0;
+    padding: .5rem;
+    list-style: none;
+}
+/* end of dropdown css */
+
+#ball {
+    width: 2rem;
+    height: 2rem;
+    background-color: red;
+    position:absolute;
+    border-radius: 1rem;
 }

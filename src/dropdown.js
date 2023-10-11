@@ -1,11 +1,7 @@
-import { doc } from 'prettier';
-import './dropdown.css';
-
 const dropdown = (id,type = 'click') => {
     const dropdownElement = document.getElementById(id);
     const optionFrame = dropdownElement.querySelector('.option-frame');
     const dropdownFront = dropdownElement.querySelector('.dropdown-front');
-    console.log(dropdownElement);
     
     const click = () => {
         if (isHidden()) {
@@ -14,7 +10,6 @@ const dropdown = (id,type = 'click') => {
             hide();
         }
     }
-
     
     const hide = () => {
         optionFrame.setAttribute('style','display:none;');
@@ -42,7 +37,6 @@ const dropdown = (id,type = 'click') => {
         dropdownElement.addEventListener('mouseleave',hide);
     }
     hide();
-    console.log(isHidden());
     dropdownFront.addEventListener(type, click);
     optionFrame.addEventListener('click',hide);
 };
@@ -50,6 +44,15 @@ const dropdown = (id,type = 'click') => {
 const drawDropdown = (id,optionList,frontText = "Dropdown List") => {
     if (document.getElementById(id)) {
         throw new Error('Element ID already exists');
+    }
+
+    const refreshPlayground = () => {
+        const playground = document.getElementById('playground');
+        const newPlayground = document.createElement('div');
+        const container = document.getElementById('container');
+        newPlayground.id = 'playground';
+        container.insertBefore(newPlayground,playground);
+        container.removeChild(playground);
     }
 
     const dropdown = document.createElement('div');
@@ -69,7 +72,10 @@ const drawDropdown = (id,optionList,frontText = "Dropdown List") => {
         const link = document.createElement('a');
         link.textContent = option.name
         link.classList.add('dropdown-option');
-        link.href = option.link;
+        link.addEventListener('click',() => {
+            refreshPlayground();
+            option.link();
+        });
         li.appendChild(link);
         ul.appendChild(li);
     });
