@@ -1,0 +1,14 @@
+body {
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+}
+
+#playground {
+    width: clamp(10rem, 75vw, 40rem);
+    height: clamp(10rem, 60vh, 40rem);
+    background-color: azure;
+    /* border: 1px solid black; */
+}

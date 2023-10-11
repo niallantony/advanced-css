@@ -1,0 +1,11 @@
+{
+  "name": "advanced-css",
+  "version": "1.0.0",
+  "description": "A showcase of advanced CSS work",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
