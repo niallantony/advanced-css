@@ -1,5 +1,5 @@
 import { drawDropdown, dropdown } from "./src/dropdown.js";
-import { follow, spin } from "./src/scripts.js";
+import { follow, spin, tickerTape } from "./src/scripts.js";
 
 
 export const init = (() => {
@@ -13,6 +13,10 @@ export const init = (() => {
         {
             name:'Cube',
             link:spin,
+        },
+        {
+            name:'Ticker-tape',
+            link:tickerTape,
         },
     ];
     const dropdownMenu = drawDropdown('dropdown',firstList, "Demonstrations");

@@ -42,6 +42,40 @@ export const spin = (playground) => {
 
 }
 
+export const tickerTape = (playground,text = "Type some text into me...") => {
+    const tape = document.createElement('div');
+    const textBox = document.createElement('input');
+    textBox.id = "ticker-text";
+    const changeTextButton = document.createElement('button');
+    changeTextButton.classList.add('context-button');
+    changeTextButton.addEventListener('click', () => {
+        tape.textContent = textBox.value;
+    })
+    const speedSlider = document.createElement('input');
+    speedSlider.setAttribute('type','range');
+    speedSlider.setAttribute('min',1);
+    speedSlider.setAttribute('max',30);
+    speedSlider.setAttribute('value',22);
+    speedSlider.classList.add('slider');
+    speedSlider.addEventListener('change', (e) => {
+        tape.setAttribute('style',`animation-duration:${30.5 - e.target.value}s;`);
+    })
+    const speedLabel = document.createElement('label');
+    const textLabel = document.createElement('label');
+    speedLabel.textContent = "Set Speed:"
+    textLabel.textContent = "Set Text:"
+    playground.appendChild(speedLabel);
+    playground.appendChild(speedSlider);
+    playground.appendChild(textLabel);
+    playground.appendChild(textBox);
+    playground.appendChild(changeTextButton);
+    changeTextButton.textContent = "Change Text"
+    tape.classList.add('tape');
+    tape.textContent = text;
+    playground.appendChild(tape);
+    tooltip("A ticker-tape effect for the given text");
+}
+
 const tooltip = (text) => {
     const playground = document.getElementById('playground');
     const tooltip = document.createElement('div');

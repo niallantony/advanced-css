@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
 
 :root {
     --background: #9ec5ab;
@@ -29,6 +30,10 @@ body {
 
 #playground {
     overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(auto-fit, 4rem);
+    align-items: center;
 }
 
 /* dropdown css */
@@ -216,4 +221,49 @@ li {
 
 .bottom {
     transform: rotateX(270deg) translateZ(100px);
+}
+
+/* tickertape */
+
+.tape {
+    font-family: 'Rubik Mono One', monospace;
+    font-size: 7rem;
+    position:absolute;
+    top:0;
+    margin-top:auto;
+    bottom:0;
+    height: 7rem;
+    color: greenyellow;
+    text-shadow: greenyellow 1px 0 10px;
+    margin-bottom:auto;
+    width:fit-content;
+    white-space: nowrap;
+    animation-duration: 7s;
+    animation-name: tickertape;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.slider {
+    margin: 1rem 2rem;
+    grid-column: 2 / 4;
+}
+
+label {
+    margin: 1rem;
+    grid-column: 1 / 2;
+}
+
+#ticker-text {
+    height: 2rem;
+    align-self: center;
+    padding: 3px 1rem;
+    font-family: inherit;
+    grid-column: 2 / 4;
+    margin: 1rem 2rem;
+}
+
+@keyframes tickertape {
+    from { transform: translateX(50%);}
+    to { transform: translateX(-100%);}
 }
